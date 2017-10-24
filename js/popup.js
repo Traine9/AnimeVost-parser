@@ -49,11 +49,11 @@ $(document).ready(function () {
 					console.log(urls);
 					var i = 0;
 					var resStr = [];
-					urls.forEach(uri => {  // эта функция дает рандом последовательность втф нахуй
+					urls.forEach(uri => {  // this func give random seq
   fetch(uri)
-    .then(r => r.text()) // Получаем ответ как текст
+    .then(r => r.text()) // get reply in text
     .then(data => {
-      // Работа с ответом тут через data
+      // data = reply
 	  var f = "filehd";
 	  if($(data).find(f)==undefined)f = "file";
 	  var str  = data.substring(data.indexOf(f)+9,data.indexOf('.mp4',data.indexOf(f))+4);
@@ -75,10 +75,10 @@ $(document).ready(function () {
 		var a1=a.substring(a.lastIndexOf('.')-10,a.lastIndexOf('.'));
 		var b1=b.substring(b.lastIndexOf('.')-10,b.lastIndexOf('.'));
   if(numbers.indexOf(a1)<numbers.indexOf(b1))
-     return -1; // Или любое число, меньшее нуля
+     return -1; // <0
 if(numbers.indexOf(a1)>numbers.indexOf(b1))
-     return 1;  // Или любое число, большее нуля
-  // в случае а = b вернуть 0
+     return 1;  // >0
+  // a = b
   return 0
 }
 )	
